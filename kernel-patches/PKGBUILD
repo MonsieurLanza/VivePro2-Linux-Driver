@@ -1,11 +1,11 @@
 # Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
 
 pkgbase=linux-drm-misc-next-git
-pkgver=6.1.0
+pkgver=6.1.r1139531.6e41acd2e535
 pkgrel=1
 pkgdesc='Linux with patches requied to use steamvr proxy driver'
 _product="${pkgbase%-git}"
-_branch="${_product#linux-}"
+_tag="drm-misc-next-2023-01-12"
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -14,17 +14,17 @@ makedepends=(
 options=('!strip')
 _srcname=archlinux-linux
 source=(
-  "$_srcname::git+https://anongit.freedesktop.org/git/drm/drm-misc.git#branch=$_branch"
+  "$_srcname::git+https://anongit.freedesktop.org/git/drm/drm-misc.git#tag=$_tag"
   config         # the main kernel config file
   0001-drm-edid-Add-Vive-Cosmos-Vive-Pro-2-to-non-desktop-l.patch
   0002-drm-edid-parse-DRM-VESA-dsc-bpp-target.patch
   0003-drm-amd-use-fixed-dsc-bits-per-pixel-from-edid.patch
 )
 sha256sums=('SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP')
+            '9a0c815285a6f9e9572eab5db2e11d7e787b4db945ded2ab45e5672db7dd10d0'
+            '7de7954d1a9a8a639e70ca6f832340a3f328146a621b1079fbd691688424b715'
+            '088eee98a6d99a736d6e78df6b4fe2d5d0e71cfa772001fdd39a457a6a72b3e3'
+            '47bc785531525965cfa42d30ea5dec54b53643d4609a4913618d8db319df3ef0')
 
 pkgver() {
   cd $_srcname
